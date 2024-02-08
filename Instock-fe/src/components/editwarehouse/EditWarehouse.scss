@@ -1,0 +1,505 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/fonts";
+
+.warehousename-Valid{
+  position: relative;
+   display: none;
+ &__img{
+   position: relative;
+   top: 4px;
+   width: 16px;
+ }
+   &__text{
+  color: red;
+  font-family:"TitilliumWeb";
+  font-size: .75rem;
+  font-weight: 400;
+  padding-left: 0.2rem;
+   }
+ }
+ 
+ 
+ .address-Valid{
+  position: relative;
+   display: none;
+ &__img{
+   position: relative;
+   top: 4px;
+   width: 16px;
+ }
+   &__text{
+  color: red;
+  font-family:"TitilliumWeb";
+  font-size: .75rem;
+  font-weight: 400;
+  padding-left: 0.2rem;
+   }
+ }
+ 
+ .city-Valid{
+  position: relative;
+   display: none;
+ &__img{
+   position: relative;
+   top: 4px;
+   width: 16px;
+ }
+   &__text{
+  color: red;
+  font-family:"TitilliumWeb";
+  font-size: .75rem;
+  font-weight: 400;
+  padding-left: 0.2rem;
+   }
+ }
+ 
+ .country-Valid{
+  position: relative;
+   display: none;
+ &__img{
+   position: relative;
+   top: 4px;
+   width: 16px;
+ }
+   &__text{
+  color: red;
+  font-family:"TitilliumWeb";
+  font-size: .75rem;
+  font-weight: 400;
+  padding-left: 0.2rem;
+   }
+ }
+ 
+ .contactname-Valid{
+  position: relative;
+   display: none;
+ &__img{
+   position: relative;
+   top: 4px;
+   width: 16px;
+ }
+   &__text{
+  color: red;
+  font-family:"TitilliumWeb";
+  font-size: .75rem;
+  font-weight: 400;
+  padding-left: 0.2rem;
+   }
+ }
+ 
+ .position-Valid{
+  position: relative;
+   display: none;
+ &__img{
+   position: relative;
+   top: 4px;
+   width: 16px;
+ }
+   &__text{
+  color: red;
+  font-family:"TitilliumWeb";
+  font-size: .75rem;
+  font-weight: 400;
+  padding-left: 0.2rem;
+   }
+ }
+ 
+ 
+ .phonenumber-Valid{
+  position: relative;
+   display: none;
+ &__img{
+   position: relative;
+   top: 4px;
+   width: 16px;
+ }
+   &__text{
+  color: red;
+  font-family:"TitilliumWeb";
+  font-size: .75rem;
+  font-weight: 400;
+  padding-left: 0.2rem;
+   }
+ }
+ 
+ .email-Valid{
+  position: relative;
+   display: none;
+ &__img{
+   position: relative;
+   top: 4px;
+   width: 16px;
+ }
+   &__text{
+  color: red;
+  font-family:"TitilliumWeb";
+  font-size: .75rem;
+  font-weight: 400;
+  padding-left: 0.2rem;
+   }
+ }
+.form{
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: #ffffff;
+
+  @include breakpoints.small {
+    margin: 0 1rem;
+    margin-top: -67px;
+  }
+
+   @include breakpoints.medium {
+    margin: 0 2rem;
+    margin-top: -96px;
+  }
+
+  @include breakpoints.large {
+   margin: 0 8.125rem;
+   margin-top: -96px;
+  }}
+
+
+.form-top {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 1.75rem 1.5rem;
+  align-items: baseline;
+  @include breakpoints.medium {
+    padding: 2rem 2.25rem 1.313rem;
+  }
+  @include breakpoints.large {
+    padding: 2rem 2.75rem 1.313rem;
+  
+}
+}
+.form-top__backIcon {
+  @include breakpoints.small {
+    flex: 0 0 10%;
+    margin-right: 0.3rem;
+  }
+  @include breakpoints.medium {
+    flex: 0 0 10%;
+    margin-right: 0.5rem;
+  }
+  @include breakpoints.large {
+    flex: 0 0 10%;
+    margin-right: 0.5rem;
+  }
+}
+
+@include breakpoints.small {
+  .form {
+   
+
+    &__title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 2.25rem;
+      color: colors.$primaryDark;
+     
+    }
+
+    &__subtitle {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      font-weight: 600;
+      color: colors.$primaryDark;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    &__container {
+      display: flex;
+      flex-direction: column;
+      
+    }
+    &__detail {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+    &__label {
+      font-weight: 600;
+      font-size: 0.813rem;
+      line-height: 1.25rem;
+    }
+    &__input {
+      width: 100%;
+      height: 2.25rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      margin-top: 4px;
+      padding-left: 0.8rem;
+    }
+    &__warehousedetails {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    &__hr {
+      border: 0.5px solid colors.$secondaryLight;
+    }
+    &__contactdetails {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    &__btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 4.25rem;
+      background-color: colors.$backgroundLight;
+    }
+
+    &__btncancel {
+      height: 2.25rem;
+      width: 8.6rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      padding: 8px 51px;
+      font-size: 13px;
+      font-family: "TitilliumWeb";
+      font-weight: 600;
+      background-color: colors.$primaryLight;
+    }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+  }
+    &__btnsave {
+      height: 2.25rem;
+      width: 8.6rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      padding: 8px 51px;
+      font-size: 13px;
+      font-family: "TitilliumWeb";
+      font-weight: 600;
+      color: colors.$primaryLight;
+      background-color: colors.$primaryMedium;
+      opacity: 1;
+    }
+    &__btnsave:hover {
+      background-color: colors.$backgroundDark;
+    }
+  }
+}
+
+@include breakpoints.medium {
+  .form {
+    
+    &__title {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 2.5rem;
+      color: colors.$primaryDark;
+      
+      
+    }
+    &__content {
+      display: flex;
+      flex-direction: row;
+      border-top: 1px solid colors.$secondaryLight;
+    }
+    &__subtitle {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      font-weight: 600;
+      color: colors.$primaryDark;
+    }
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+    &__detail {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.4rem;
+    }
+    &__label {
+      font-weight: 600;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+    &__input {
+      width: 100%;
+      height: 2.375rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      margin-top: 4px;
+      padding-left: 0.8rem;
+    }
+    &__warehousedetails {
+      width: 50%;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      margin-top: 1.5rem;
+    }
+    &__hr {
+      display: none;
+    }
+
+    &__contactdetails {
+      width: 50%;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      border-left: 1px solid colors.$secondaryLight;
+      margin-top: 1.5rem;
+    }
+    &__btns {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 4.25rem;
+      margin-top: 1rem;
+      padding-right: 2rem;
+      background-color: colors.$backgroundLight;
+    }
+
+    &__btncancel {
+      margin-right: 1rem;
+      height: 2.375rem;
+      width: 4.5rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      padding: 0.5rem 1rem;
+      line-height: 22px;
+      font-size: 14px;
+      line-height: 22px;
+      font-family: "TitilliumWeb";
+      font-weight: 600;
+      background-color: colors.$primaryLight;
+    }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+  }
+    &__btnsave {
+      height: 2.375rem;
+      width: 4.5rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      padding: 0.5rem 1rem;
+      line-height: 22px;
+      font-size: 14px;
+      font-family: "TitilliumWeb";
+      font-weight: 600;
+      color: colors.$primaryLight;
+      background-color: colors.$primaryMedium;
+      opacity: 1;
+    }
+    &__btnsave:hover {
+      background-color: colors.$backgroundDark;
+  }
+}
+}
+
+@include breakpoints.large {
+  .form {
+    
+    &__title {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 2.5rem;
+      color: colors.$primaryDark;
+    
+    }
+    &__content {
+      display: flex;
+      flex-direction: row;
+      border-top: 1px solid colors.$secondaryLight;
+    }
+    &__subtitle {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      font-weight: 600;
+      color: colors.$primaryDark;
+    }
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+    &__detail {
+      margin-top: 0.3rem;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.4rem;
+    }
+    &__label {
+      font-weight: 600;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+    &__input {
+      width: 100%;
+      height: 2.375rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      margin-top: 4px;
+      padding-left: 0.8rem;
+    }
+    &__warehousedetails {
+      width: 50%;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      margin-top: 1.5rem;
+    }
+    &__hr {
+      display: none;
+    }
+
+    &__contactdetails {
+      width: 50%;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      border-left: 1px solid colors.$secondaryLight;
+      margin-top: 1.5rem;
+    }
+    &__btns {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 4.375rem;
+      margin-top: 1rem;
+      padding-right: 2.5rem;
+      background-color: colors.$backgroundLight;
+    }
+
+    &__btncancel {
+      margin-right: 1rem;
+      height: 2.375rem;
+      width: 4.5rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      padding: 0.5rem 1rem;
+      line-height: 22px;
+      font-size: 14px;
+      line-height: 22px;
+      font-family: "TitilliumWeb";
+      font-weight: 600;
+      background-color: colors.$primaryLight;
+    }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+  }
+    &__btnsave {
+      height: 2.375rem;
+      width: 3.82rem;
+      border-radius: 20px;
+      border: 1px solid colors.$secondaryLight;
+      padding: 0.5rem 1rem;
+      line-height: 22px;
+      font-size: 14px;
+      font-family: "TitilliumWeb";
+      font-weight: 600;
+      color: colors.$primaryLight;
+      background-color: colors.$primaryMedium;
+      opacity: 1;
+    }
+    &__btnsave:hover {
+      background-color: colors.$backgroundDark;
+  }
+  }
+}
