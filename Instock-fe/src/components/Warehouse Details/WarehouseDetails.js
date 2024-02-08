@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom';
 import Axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import InventoryList from './../InventoryList/InventoryList'
 
 
 function WarehouseDetails ({props}) {
@@ -27,6 +28,7 @@ function WarehouseDetails ({props}) {
     return(
         <div className="container--title">
             
+            <InventoryList warehouseId={id} />
         </div>
     )
 }

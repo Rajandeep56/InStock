@@ -7,13 +7,16 @@ import rightIcon from '../../assets/icons/chevron_right-24px.svg';
 import './InventoryList.scss';
 //import DeleteItem from '../DeleteItem/DeleteItem';
 
-const InventoryList = () => {
+const InventoryList = ({ warehouseId = null }) => {
     const [inventoryList, setInventoryList] = useState([]);
     const [display, setDisplay] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
   
     useEffect(() => {
-      axios.get('http://localhost:8088/inventory')
+      let endpoint = warehouseId ? `http://localhost:8088/api/warehouses/${warehouseId}/inventories` :
+        'http://localhost:8088/inventory'
+
+      axios.get(endpoint)
         .then(response => {
           setInventoryList(response.data);
         })
@@ -73,7 +76,12 @@ const InventoryList = () => {
         <div className="inventoryList__item-detail">{item.category}</div>
         <div className="inventoryList__item-detail">{item.status}</div>
         <div className="inventoryList__item-detail">{item.quantity}</div>
-        <div className="inventoryList__item-detail">{item.warehouse_name}</div>
+
+        {
+          warehouseId ? <></> :
+          <div className="inventoryList__item-detail">{item.warehouse_name}</div>
+        }
+        
         <div className="inventoryList__actions-detail">
           <Link to={`/inventories/${item.id}/edit`}><img src={editIcon} alt="Edit" /></Link>
           <button onClick={() => showModal(item)}><img src={deleteIcon} alt="Delete" /></button>
