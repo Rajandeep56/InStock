@@ -3,6 +3,7 @@ const router = express.Router();
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
 const knex = require('knex')(require('../../DB Setup/knexfile'));
+const { fetchWarehouseInventories } = require("../../Controllers/inventoryControllers");
 
 const fetchWarehousesFromDb = async () => {
   try {
@@ -60,6 +61,23 @@ router.get('/:id', async (req, res) => {
     }
 
     return res.status(200).json(warehouseMatch);
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+router.get('/:id/inventories', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const warehouseMatch = await fetchWarehouseByIdFromDb(id);
+
+    if (!warehouseMatch) {
+      return res.status(404).json({ message: "Warehouse does not exist. Please check and try again" });
+    }
+
+    const inventories = await fetchWarehouseInventories(id)
+
+    return res.status(200).json(inventories);
   } catch (error) {
     return res.status(500).json({ message: "Internal Server Error" });
   }

@@ -10,6 +10,18 @@ const fetchInventories = async () => {
   }
 };
 
+const fetchWarehouseInventories = async (warehouse_id) => {
+  try {
+    const inventories = await knex('inventories').select('*')
+      .where({warehouse_id: warehouse_id});
+
+    return inventories;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error fetching inventories from the database');
+  }
+};
+
 const addInventoryItem = async (newItem) => {
   try {
     const [newInventoryItem] = await knex('inventories')
@@ -26,4 +38,4 @@ const addInventoryItem = async (newItem) => {
   }
 };
 
-module.exports = { fetchInventories, addInventoryItem };
+module.exports = { fetchInventories, fetchWarehouseInventories, addInventoryItem };

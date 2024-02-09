@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const knex = require('knex')(require('../../DB Setup/knexfile'));
 const fs = require("fs");
-const { fetchInventories, addInventoryItem } = require("../../controllers/inventoryControllers");
+const { fetchInventories, addInventoryItem } = require("../../Controllers/inventoryControllers");
 
 
 
