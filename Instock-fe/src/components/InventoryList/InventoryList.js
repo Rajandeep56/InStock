@@ -23,6 +23,21 @@ const InventoryList = () => {
         });
     }, []);
 
+    const [warehouses, setWarehouses] = useState([]);
+    useEffect(() => {
+      const fetchWarehouses = async () => {
+        try {
+          const response = await axios.get('http://localhost:8088/api/warehouses');
+          console.log("Warehouses data:", response.data); 
+          setWarehouses(response.data.warehouseList);
+        } catch (error) {
+          console.error('Error fetching warehouses:', error);
+        }
+      };
+    
+      fetchWarehouses();
+    }, []);
+  
     function deleteInventory(inventory){
       setDeletingInventory(inventory)
     }
@@ -74,7 +89,7 @@ const InventoryList = () => {
         <div className="inventoryList__item-detail">{item.category}</div>
         <div className="inventoryList__item-detail">{item.status}</div>
         <div className="inventoryList__item-detail">{item.quantity}</div>
-        <div className="inventoryList__item-detail">{item.warehouse_name}</div>
+        <div className="inventoryList__item-detail" >{Array.isArray(warehouses) && warehouses.find(warehouse => String(warehouse.id) === String(item.warehouse_id))?.warehouse_name || 'Warehouse not found'}</div>
         <div className="inventoryList__actions-detail">
           <Link to={`/inventory/${item.id}/edit`}><img src={editIcon} alt="Edit" /></Link>
           <button onClick={() => deleteInventory(item)}><img src={deleteIcon} alt="Delete" /></button>

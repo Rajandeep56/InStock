@@ -184,23 +184,6 @@ const AddInventory = () => {
                                         <option key={warehouse.id} value={warehouse.warehouse_name}>{warehouse.warehouse_name}</option>
                                     ))}
                                 </select>
-                            {/* <select
-                                    className="item-form__dropdown"
-                                    name="warehouseName"
-                                    required
-                                    value={formData.warehouseName}
-                                    onChange={handleChange}
-                            >
-                                <option value="">Please Select</option>
-                                <option key={warehouse.id} value={warehouse.name}>{warehouse.name}</option>
-                                <option type="text" value="Manhatten">Manhatten</option>
-                                <option type="text" value="Washington">1</option>
-                                <option type="text" value="Jersey">Jersey</option>
-                                <option type="text" value="San Fran">San Fran</option>
-                                <option type="text" value="Santa Monica">Santa Monica</option>
-                                <option type="text" value="Seattle">Seattle</option>
-                                <option type="text" value="Miami">Miami</option>
-                            </select> */}
                         </div>
 
                         <div className="item-form__button">
