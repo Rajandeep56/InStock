@@ -1,69 +1,90 @@
-@import '../../styles/partials/breakpoints';
-@import '../../styles/partials/colors';
+@import "../../styles/partials/breakpoints";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/fonts";
 
-.header{
-    background-color: $backgroundDark;
-    color: $primaryLight;
-    padding: 32px;
-  
+.header {
+  background-color: $backgroundDark;
+  color: $primaryLight;
+  padding: 32px;
+  height: 11.625rem;
+
+
+ 
+
+  @include medium {
+    display: flex;
+    align-items: center;
+  }
+
+  @include large {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    position: absolute;
+    left: 12rem;
+    @include small {
+      margin-bottom: 2.5rem;
+    }
+
+    img {
+      @include small {
+        display: block;
+      }
+      @include medium{
+        display: block;
+        margin-left: 10rem;
+        margin-bottom: 2rem;
+      }
+      @include large {
+        display: block;
+        // margin-left: 13rem;
+      }
+    }
+  }
+
+  &__links {
+    
+    display: flex;
+    align-items: center;
+    width: 25%;
+    
+
     @include medium {
-        display: flex;
-        align-items: center;
+      padding-left: 18rem;
+      position: absolute;
+      left: 19rem;
     }
 
     @include large {
-        display: flex;
-        align-items: center;
+      margin-left: auto;
+      margin-right: 10rem;
     }
 
-    &__logo{
-        @include small{
-            margin-bottom: 24px;
-        }
+    &--link {
+      color: $primaryLight;
+      text-decoration: none;
+      display: block;
+      text-align: center;
 
-        img{
-            @include small{
-                display: block;
-                margin: 0 auto;
-            }
-        }
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+
+      &.active {
+        background-color: $primaryDark;
+        padding: 8px 16px;
+        border-radius: 24px;
+      }
+
+      @include small {
+        width: 50%;
+      }
     }
-
-    &__links{
-        display: flex;
-        align-items: center;
-
-        @include medium{
-            margin-left: auto;
-        }
-
-        @include large{
-            margin-left: auto;
-        }
-
-        &--link{
-            color: $primaryLight;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-
-            &:hover{
-                text-decoration: underline;
-            }
-
-            &:not(:last-child){
-                margin-right: 24px;
-            }
-
-            &.active{
-                background-color: $primaryDark;
-                padding: 8px 16px;
-                border-radius: 24px;
-            }
-
-            @include small{
-                width: 50%;
-            }
-        }
-    }
+  }
 }

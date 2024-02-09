@@ -1,0 +1,99 @@
+/* media query for mobile */
+/* media query for tablet */
+/*media query for desktop */
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: bold;
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .warehouse {
+    margin-top: 1rem;
+    background-color: #ffffff;
+    width: 100%;
+    position: absolute;
+    top: 16rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .warehouse {
+    margin-top: 1rem;
+    background-color: #ffffff;
+    width: 70%;
+    position: absolute;
+    top: 16rem;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .warehouse-list-header {
+    display: flex;
+    flex-direction: row;
+    background-color: #f7f8f9;
+    margin-top: -9rem;
+    height: 4rem;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .warehouse-list-header {
+    display: flex;
+    flex-direction: row;
+    background-color: #f7f8f9;
+    margin-top: -9rem;
+    height: 4rem;
+  }
+  .warehouse-list-header h5 {
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .container--warehouse {
+    margin: 1rem 4rem 4rem 3rem;
+    padding-bottom: 5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .container--warehouse {
+    margin: 1rem 4rem 4rem 3rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .warehouse-list-title {
+    padding-right: 0rem;
+    margin: 1rem 0rem 0rem 3rem;
+    display: flex;
+    flex-direction: row;
+    width: 17%;
+  }
+  .warehouse-list-title img {
+    margin: -1.5rem 0rem 0rem 0.5rem;
+    width: 20%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .warehouse-list-title {
+    margin: 1rem 5rem 0rem 3rem;
+    display: flex;
+    flex-direction: row;
+    width: 7rem;
+  }
+  .warehouse-list-title img {
+    margin: -1.5rem 0rem 0rem 0.5rem;
+    width: 30%;
+  }
+}/*# sourceMappingURL=Warehouse.css.map */

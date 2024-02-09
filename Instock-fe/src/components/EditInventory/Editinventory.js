@@ -18,7 +18,7 @@ function EditInventory() {
 
   const fetchData = async (parmid) => {
     try {
-      const response = await axios.get(`http://localhost:8088/inventory/api/inventory/${parmid}`);
+      const response = await axios.get(`http://localhost:8088/inventory/${parmid}`);
       const currentItem = response.data;
   
       if (currentItem) {
@@ -48,7 +48,7 @@ function EditInventory() {
   };
   const handleSave = async () => {
     try {
-      const response = await axios.put(`http://localhost:8088/inventory/api/inventory/${id}`, itemDetails);
+      const response = await axios.put(`http://localhost:8088/inventory/${id}`, itemDetails);
       console.log(response.data); 
     } catch (error) {
       console.error('Error updating data:', error);

@@ -1,0 +1,97 @@
+@import "../../styles/partials/breakpoints";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/fonts";
+
+.warehouse--container-list {
+    @include medium{
+      display: flex;
+      flex-direction: row;
+      padding-left: 3rem;
+      height: 5.5rem;
+      width: 83.75%;
+  }
+
+  &:hover{
+    background-color: $backgroundLight;
+  }
+
+
+  @include large{
+      display: flex;
+      flex-direction: row;
+      padding-left: 3rem;
+      height: 5.5rem;
+      width: 83.75%;
+  }
+
+  &:hover{
+    background-color: $backgroundLight;
+  }
+}
+
+
+.warehouse-name{
+  @include medium{
+    min-width: 20%;
+    padding-top: 2rem;
+    margin:0% 2%;
+  }
+
+  @include large{
+    min-width: 15%;
+       padding-top: 2rem;
+       margin-right:7%;
+  }
+       
+        
+}
+
+.warehouse-address{
+    @extend .warehouse-name;
+
+    @include large{
+      min-width: 15%;
+         padding-top: 2rem;
+         margin-right:5rem;
+    }
+    
+}
+
+.warehouse-contactname{
+    @extend .warehouse-name;
+    
+}
+
+.contact-information{
+    @extend .warehouse-name;
+  
+    
+}
+
+.action--icons{
+    @include medium{
+      display: flex;
+      // justify-content: space-between;
+       img{
+          width: 80%;
+          padding-left: 2rem;
+  
+       }
+    }
+    @include large{
+      display: flex;
+      // justify-content: space-between;
+       img{
+          min-width: 45%;
+          width: 45%;
+          padding-left: 20%;
+  
+       }
+    }
+    
+}
+
+.warehouse--link{
+    text-decoration: none;
+    color:$primaryMedium;
+}

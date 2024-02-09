@@ -5,7 +5,7 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 
-const PORT = process.env.PORT||8088;
+const PORT = 8088;
 
 
 app.use(cors());
@@ -16,8 +16,10 @@ app.get('/', (req,res) => {
 });
 
 
+
+app.use("/api/warehouses", warehouseRoutes);
 app.use("/inventory", inventoryRoutes);
-app.use("/", warehouseRoutes);
+
 
 
 app.listen(PORT, () =>{

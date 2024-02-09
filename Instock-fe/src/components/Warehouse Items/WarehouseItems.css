@@ -1,0 +1,87 @@
+/* media query for mobile */
+/* media query for tablet */
+/*media query for desktop */
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: bold;
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .warehouse--container-list {
+    display: flex;
+    flex-direction: row;
+    padding-left: 3rem;
+    height: 5.5rem;
+    width: 83.75%;
+  }
+}
+.warehouse--container-list:hover {
+  background-color: #f7f8f9;
+}
+@media only screen and (min-width: 1280px) {
+  .warehouse--container-list {
+    display: flex;
+    flex-direction: row;
+    padding-left: 3rem;
+    height: 5.5rem;
+    width: 83.75%;
+  }
+}
+.warehouse--container-list:hover {
+  background-color: #f7f8f9;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .warehouse-name, .contact-information, .warehouse-contactname, .warehouse-address {
+    min-width: 20%;
+    padding-top: 2rem;
+    margin: 0% 2%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .warehouse-name, .contact-information, .warehouse-contactname, .warehouse-address {
+    min-width: 15%;
+    padding-top: 2rem;
+    margin-right: 7%;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .warehouse-address {
+    min-width: 15%;
+    padding-top: 2rem;
+    margin-right: 5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .action--icons {
+    display: flex;
+  }
+  .action--icons img {
+    width: 80%;
+    padding-left: 2rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .action--icons {
+    display: flex;
+  }
+  .action--icons img {
+    min-width: 45%;
+    width: 45%;
+    padding-left: 20%;
+  }
+}
+
+.warehouse--link {
+  text-decoration: none;
+  color: #2e66e5;
+}/*# sourceMappingURL=WarehouseItems.css.map */

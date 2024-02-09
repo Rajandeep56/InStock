@@ -1,23 +1,29 @@
-const fs = require("fs");
-const path = require("path");
-const { v4: uuidv4 } = require("uuid");
+const knex = require('knex')(require('../DB Setup/knexfile'));
 
-const inventoryFilePath = path.join(__dirname, '..', "Node Setup", 'data', 'inventory.json');
-console.log(inventoryFilePath);
-
-const fetchInventories = () => {
-  return JSON.parse(fs.readFileSync(inventoryFilePath));
+const fetchInventories = async () => {
+  try {
+    const inventories = await knex('inventories').select('*');
+    return inventories;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error fetching inventories from the database');
+  }
 };
 
-const addInventoryItem = (newItem) => {
-  const inventories = fetchInventories();
-  const newInventoryItem = {
-    ...newItem,
-    id: uuidv4(), 
-  };
-  const updatedInventories = [...inventories, newInventoryItem];
-  fs.writeFileSync(inventoryFilePath, JSON.stringify(updatedInventories, null, 2));
-  return newInventoryItem;
+const addInventoryItem = async (newItem) => {
+  try {
+    const [newInventoryItem] = await knex('inventories')
+      .insert({
+        ...newItem,
+        id: undefined, 
+      })
+      .returning('*');
+
+    return newInventoryItem;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error adding inventory item to the database');
+  }
 };
 
 module.exports = { fetchInventories, addInventoryItem };

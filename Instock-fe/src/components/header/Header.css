@@ -1,0 +1,102 @@
+/* media query for mobile */
+/* media query for tablet */
+/*media query for desktop */
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: bold;
+}
+.header {
+  background-color: #232940;
+  color: #ffffff;
+  padding: 32px;
+  height: 11.625rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    display: flex;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .header {
+    display: flex;
+    align-items: center;
+  }
+}
+.header__logo {
+  position: absolute;
+  left: 12rem;
+}
+@media only screen and (max-width: 767px) {
+  .header__logo {
+    /* placeholder for css properties that needs to be applied for this media query */
+    margin-bottom: 2.5rem;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header__logo img {
+    /* placeholder for css properties that needs to be applied for this media query */
+    display: block;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .header__logo img {
+    display: block;
+    margin-left: 10rem;
+    margin-bottom: 2rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .header__logo img {
+    display: block;
+  }
+}
+.header__links {
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .header__links {
+    padding-left: 18rem;
+    position: absolute;
+    left: 19rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .header__links {
+    margin-left: auto;
+    margin-right: 10rem;
+  }
+}
+.header__links--link {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+.header__links--link:hover {
+  text-decoration: none;
+}
+.header__links--link:not(:last-child) {
+  margin-right: 24px;
+}
+.header__links--link.active {
+  background-color: #13182c;
+  padding: 8px 16px;
+  border-radius: 24px;
+}
+@media only screen and (max-width: 767px) {
+  .header__links--link {
+    /* placeholder for css properties that needs to be applied for this media query */
+    width: 50%;
+  }
+}/*# sourceMappingURL=Header.css.map */

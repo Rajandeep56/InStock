@@ -1,0 +1,99 @@
+@import '../../styles/partials/breakpoints';
+@import '../../styles/partials/colors';
+@import '../../styles/partials/fonts';
+
+.warehouse{
+    @include medium{
+        margin-top: 1rem;
+        background-color: $primaryLight;
+        width: 100%;
+        position: absolute;
+        top: 16rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @include large{
+        margin-top: 1rem;
+        background-color: $primaryLight;
+        width: 70%;
+        position: absolute;
+        top: 16rem;
+        left: 45%;
+        transform: translate(-50%, -50%);
+    }
+
+    
+
+}
+
+.warehouse-list-header{
+
+    @include medium{
+        display: flex;
+        flex-direction: row;
+        background-color: $backgroundLight;
+        margin-top: -9rem;
+        height: 4rem;
+        width: 100%;
+
+        
+    }
+    @include large{
+        display: flex;
+        flex-direction: row;
+        background-color: $backgroundLight;
+        margin-top: -9rem;
+        height: 4rem;
+
+        h5{
+            white-space: nowrap;
+            
+        }
+    }
+    
+}
+
+
+
+.container--warehouse{
+    @include medium{
+    margin: 1rem 4rem 4rem 3rem;
+    padding-bottom: 5rem;
+    }
+
+    @include large{
+        margin: 1rem 4rem 4rem 3rem;
+        padding-bottom: 5rem;
+    }
+    
+}
+
+.warehouse-list-title{
+    @include medium{
+        padding-right: 0rem;
+        margin: 1rem 0rem 0rem 3rem;
+        display: flex;
+        flex-direction: row;
+        width: 17%;
+
+    img{
+        margin: -1.5rem 0rem 0rem 0.5rem;
+        width: 20%;
+        
+    }
+    }
+    @include large{
+            margin: 1rem 5rem 0rem 3rem;
+            display: flex;
+            flex-direction: row;
+            width:7rem;
+    
+        img{
+            margin: -1.5rem 0rem 0rem 0.5rem;
+            width: 30%;
+            
+        }
+    }
+    
+}
