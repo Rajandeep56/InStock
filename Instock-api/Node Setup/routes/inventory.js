@@ -2,13 +2,23 @@ const express = require("express");
 const router = express.Router();
 const knex = require('knex')(require('../../DB Setup/knexfile'));
 const fs = require("fs");
-const { fetchInventories, addInventoryItem } = require("../../Controllers/inventoryControllers");
+const { fetchInventories, addInventoryItem} = require("../../Controllers/inventoryControllers");
+require('dotenv').config();
+const { v4: uuidv4 } = require('uuid');
 
-
+const fetchWarehouseByIdFromDb = async (id) => {
+  try {
+    const result = await knex.select('*').from('warehouses').where({ id }).first();
+    return result;
+  } catch (error) {
+    console.error("Error fetching warehouse by ID:", error);
+    throw error;
+  }
+};
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
-  
+  console.log('ID:', id); 
   try {
     const currentItem = await knex('inventories').where({ id: parseInt(id) }).first();
 
@@ -31,7 +41,7 @@ router.put('/:id', async (req, res) => {
     const updatedItem = await knex('inventories')
       .where({ id: parseInt(id) })
       .update({
-        warehouse_id: parseInt(warehouse_id),
+        warehouse_id: warehouseName,
         item_name,
         description,
         category,
@@ -50,6 +60,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  console.log(process.env.DB_HOST, process.env.DB_USER, process.env.DB_PASSWORD)
   try {
     const inventories = await fetchInventories();
     res.status(200).json(inventories);
@@ -59,30 +70,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-
-router.post("/", async (req, res) => {
-  try {
-    const { itemName, description, category, status, quantity, warehouseName } = req.body;
-
-    if (!itemName || !description || !category || !status || !quantity || !warehouseName) {
-      return res.status(400).json({ error: "Missing required fields" });
-    }
-
-    const newItem = await addInventoryItem({
-      item_name: itemName,
-      description,
-      category,
-      status,
-      quantity: Number(quantity),
-      warehouse_id: warehouseName, 
-    });
-
-    res.status(201).json(newItem);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
+router.post("/add", addInventoryItem);
 
 module.exports = router;

@@ -1,10 +1,23 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DeleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import EditIcon from '../../assets/icons/edit-24px.svg';
 import './WarehouseItems.scss';
+import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
 
 const List = ({warehouses}) => {
+    const [deletingWarehouse, setDeletingWarehouse] = useState(null)
+
+    function deleteWarehouse(warehouse){
+        setDeletingWarehouse(warehouse)
+    }
+
+    function onWarehouseDeleted(warehouse){
+        warehouses = warehouses.filter(item => item.id !== warehouse.id);
+        setDeletingWarehouse(null)
+    }
+
     return (
         <ul>
             {warehouses.map((warehouse, id) => (
@@ -25,12 +38,23 @@ const List = ({warehouses}) => {
                             <p>{warehouse.contact_email}</p>
                         </div>
                         <div className='action--icons'>
-                            <img src={DeleteIcon} alt="delete" />
+                            <img src={DeleteIcon} onClick={() => setDeletingWarehouse(warehouse)} alt="delete" />
                             <img src={EditIcon} alt="edit" />
                         </div>
                     </li>
             ))}
+
+        {
+            deletingWarehouse && (
+            <DeleteWarehouse
+                warehouse={deletingWarehouse}
+                onDeleted={onWarehouseDeleted}
+                onCancelled={() => setDeletingWarehouse(null)}
+                />
+        )
+        }
         </ul>
+        
     );
 }
 
