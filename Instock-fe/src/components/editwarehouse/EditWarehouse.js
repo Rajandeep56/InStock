@@ -1,277 +1,240 @@
-import "./EditWarehouse.scss";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import error from "../../assets/icons/error-24px.svg";
-import backArrowIcon from "../../assets/icons/arrow_back-24px.svg";
+import {useParams} from 'react-router-dom';
+import Axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import errorIcon from "../../assets/icons/error-24px.svg";
+import arrowBack from "../../assets/icons/arrow_back-24px.svg";
+import './AddWarehouse.scss';
 
-function EditWarehouse() {
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const [warehouseItem, setWarehouseItem] = useState([]);
-  
-  
 
-  const getWarehouseItem = () => {
-    axios
-      .get(`http://localhost:8088/warehouses/${id}`)
-      .then((res) => {
-        const whItemArray = res.data["warehouseData"];
-        whItemArray?.map((whItem) => {
-          setWarehouseItem(res.data);
-        });
-      })
+function WarehouseDetails ({props}) {
 
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  useEffect(() => {
-    getWarehouseItem();
-  }, []);
-  const whItemArray = warehouseItem["warehouseData"];
-  const handleSubmit = (event) => {
-    event.preventDefault();
+    const {id} = useParams();
+    const [warehouse, setWarehouse] = useState(null);
 
-   const myform=event.currentTarget
-   console.log(myform);
-   const isWarehouseNameValid = myform.warehousename.value;
-   const isAdressValid = myform.address.value;
-   const isCityValid = myform.city.value;
-   const isCountryValid = myform.country.value;
-   const isContactNameValid = myform.contactname.value;
-   const isPositionValid = myform.position.value;
-   const isPhonenumberValid = myform.phonenumber.value;
-   const isEmailValid = myform.email.value;
-   
-   
-   if (!isWarehouseNameValid) {
-    myform.warehousename.style.border = "1px solid red";
-    document.getElementById("warehousename-Valid").style.display = "block";
-   }else{myform.warehousename.style.border = "1px solid #bdc5d5";
-   document.getElementById("warehousename-Valid").style.display = "none";}
-   
-   if (!isAdressValid) {
-     myform.address.style.border = "1px solid red";
-     document.getElementById("address-Valid").style.display = "block";
-   } else {
-     myform.address.style.border = "1px solid #bdc5d5";
-      document.getElementById("address-Valid").style.display = "none";
-   }
-   
-   if (!isCityValid) {
-     myform.city.style.border = "1px solid red";
-     document.getElementById("city-Valid").style.display = "block";
-   } else {
-     myform.city.style.border = "1px solid #bdc5d5";
-     document.getElementById("city-Valid").style.display = "none";
-   }
-   
-   if (!isCountryValid) {
-     myform.country.style.border = "1px solid red";
-     document.getElementById("country-Valid").style.display = "block";
-   } else {
-     myform.country.style.border = "1px solid #bdc5d5";
-     document.getElementById("country-Valid").style.display = "none";
-   }
-   
-   if (!isContactNameValid) {
-     myform.contactname.style.border = "1px solid red";
-     document.getElementById("contactname-Valid").style.display = "block";
-   } else {
-     myform.contactname.style.border = "1px solid #bdc5d5";
-     document.getElementById("contactname-Valid").style.display = "none";
-   }
-   
-   if (!isPositionValid) {
-     myform.position.style.border = "1px solid red";
-     document.getElementById("position-Valid").style.display = "block";
-   } else {
-    myform.position.style.border = "1px solid #bdc5d5";
-    document.getElementById("position-Valid").style.display = "none";
-   }
-   
-   if (!isPhonenumberValid) {
-     myform.phonenumber.style.border = "1px solid red";
-     document.getElementById("phonenumber-Valid").style.display = "block";
-   } else {
-      myform.phonenumber.style.border = "1px solid #bdc5d5";
-     document.getElementById("phonenumber-Valid").style.display = "none";
-   }
-   
-   if (!isEmailValid) {
-     myform.email.style.border = "1px solid red";
-     document.getElementById("email-Valid").style.display = "block";
-   } else {
-     myform.email.style.border = "1px solid #bdc5d5";
-     document.getElementById("email-Valid").style.display = "none";
-   }
-   
-   if(isWarehouseNameValid && isAdressValid && isCityValid&&isCountryValid&&isContactNameValid&&isPositionValid&&isPhonenumberValid&&isEmailValid){
-   
-       const updatedWarehouse = {
-         warehouse_name: event.target.warehousename.value,
-         address: event.target.address.value,
-         city: event.target.city.value,
-         country: event.target.country.value,
-         contact_name: event.target.contactname.value,
-         contact_position: event.target.position.value,
-         contact_phone: event.target.phonenumber.value,
-         contact_email: event.target.email.value,
-       };
-   
-       axios
-         .put(`http://localhost:8080/warehouses/${id}`, updatedWarehouse)
-         .then((response) => console.log(response.data));
-       window.location = "/";
-       
-     };}
-  return (
-    <>
-      <form className="form"
-        noValidate onSubmit={handleSubmit}>
-      
-        {whItemArray?.map((whItem) => (
-          <div key={whItem.id}>
-            <div className="form-top">
-            <Link to={`/warehouse`}>
-              <div className="form-top__backIcon">
-                <img
-                  src={backArrowIcon}
-                  alt="arrow-back-icon"
-                  className="form-top__backIconimg"
-                />
-              </div>
-            </Link>
-            
-      <div className="form__title">
-        <p className="form__title-text">Edit Warehouse</p>
-      </div>
-          </div>
-      <div className="form__content">
-      <hr className="form__hr"></hr>
-        <div className="form__warehousedetails">
-          <p className="form__subtitle">Warehouse Details</p>
-          <div className="form__container">
-            <div className="form__detail">
-              <label className="form__label">Warehouse Name</label>
-              <input  className="form__input" defaultValue={whItem.warehouse_name}   name="warehousename"/>
-          
-            <div className="warehousename-Valid" id="warehousename-Valid">
-              <img
-                className="warehousename-Valid__img"
-                src={error}
-                alt="error"
+    useEffect(() =>{
+
+        const fetchWarehouseDetails = async () => {
+            try{
+                const response = await Axios.get(`/api/warehouse/${id}`);
+                setWarehouse(response.data)
+            }
+            catch(error){
+                console.error('Oops! Error encountered when fetching warehouse details:', error)
+            }
+        };
+
+        fetchWarehouseDetails();
+
+    }, [id])
+
+
+    return(
+        <section className="addWarehouse">
+        <div className="addWarehouse--heading">
+          <img src={arrowBack} alt="Back" />
+          <h1>Add New Warehouse</h1>
+        </div>
+        <form className="item-form" onSubmit={submitForm}>
+          <div className="container__item-form">
+            <div className="container__warehousedetails">
+              <h2 className="itemform--heading">Warehouse Details </h2>
+              <label className="itemform--label">Warehouse Name</label>
+              <input
+                className="itemform--input"
+                type="text"
+                placeholder="Enter Warehouse Name"
+                name="warehouse_name"
+                required
+                value={formData.warehouse_name}
+                onChange={handleChange}
               />
-              <span className="warehousename-Valid__text">
-                This field is required
-              </span>
-            </div></div>
-            <div className="form__detail">
-              <label className="form__label">Street Address</label>
-              <input className="form__input" defaultValue={whItem.address}
-                   name="address" ></input>
-            
-            <div className="address-Valid" id="address-Valid">
-                <img className="address-Valid__img" src={error} alt="error" />
-                <span className="address-Valid__text">
-                  This field is required
-                </span>
-              </div></div>
-            <div className="form__detail">
-              <label className="form__label">City</label>
-              <input className="form__input" defaultValue={whItem.city}
-                name="city"           ></input>
-            
-            <div className="city-Valid" id="city-Valid">
-                <img className="city-Valid__img" src={error} alt="error" />
-                <span className="city-Valid__text">This field is required</span>
-              </div></div>
-            <div className="form__detail">
-              <label className="form__label">Country</label>
-              <input className="form__input" defaultValue={whItem.country}
-                name="country"            ></input>
-            
-            <div className="country-Valid" id="country-Valid">
-                <img className="country-Valid__img" src={error} alt="error" />
-                <span className="country-Valid__text">
-                  This field is required
-                </span>
-              </div></div>
+              {formData.warehouse_name === "" && (
+                <div className="item-form__error">
+                  <img
+                    className="item-form__error-icon"
+                    src={errorIcon}
+                    alt="Error"
+                  />
+                  <div className="item-form__error-text">
+                    <p>This field is required!</p>
+                  </div>
+                </div>  
+              )}
+              <label className="itemform--label">Street Address</label>
+              <input
+                className="itemform--input"
+                type="text"
+                placeholder="Street Address"
+                name="address"
+                required
+                value={formData.address}
+                onChange={handleChange}
+              />
+              {formData.address === "" && (
+                <div className="item-form__error">
+                  <img
+                    className="item-form__error-icon"
+                    src={errorIcon}
+                    alt="Error"
+                  />
+                  <div className="item-form__error-text">
+                    <p>This field is required!</p>
+                  </div>
+                </div>  
+              )}
+              <label className="itemform--label">City</label>
+              <input
+                className="itemform--input"
+                type="text"
+                placeholder="City"
+                name="city"
+                required
+                value={formData.city}
+                onChange={handleChange}
+              />
+              {formData.city === "" && (
+                <div className="item-form__error">
+                  <img
+                    className="item-form__error-icon"
+                    src={errorIcon}
+                    alt="Error"
+                  />
+                  <div className="item-form__error-text">
+                    <p>This field is required!</p>
+                  </div>
+                </div>  
+              )}
+              <label className="itemform--label">Country</label>
+              <input
+                className="itemform--input"
+                type="text"
+                placeholder="Country"
+                name="country"
+                required
+                value={formData.country}
+                onChange={handleChange}
+              />
+              {formData.country === "" && (
+                <div className="item-form__error">
+                  <img
+                    className="item-form__error-icon"
+                    src={errorIcon}
+                    alt="Error"
+                  />
+                  <div className="item-form__error-text">
+                    <p>This field is required!</p>
+                  </div>
+                </div>  
+              )}
+            </div>
+            <div className="container__divider"></div>
+            <div className="container__contactdetails">
+              <h2 className="itemform--heading">Contact Details</h2>
+              <label className="itemform--label">Contact Name</label>
+              <input
+                className="itemform--input"
+                type="text"
+                placeholder="Contact Name"
+                name="contact_phone"
+                required
+                value={formData.contact_phone}
+                onChange={handleChange}
+              />
+              {formData.contact_phone === "" && (
+                <div className="item-form__error">
+                  <img
+                    className="item-form__error-icon"
+                    src={errorIcon}
+                    alt="Error"
+                  />
+                  <div className="item-form__error-text">
+                    <p>This field is required!</p>
+                  </div>
+                </div>  
+              )}
+              <label className="itemform--label">Position</label>
+              <input
+                className="itemform--input"
+                type="text"
+                placeholder="Position"
+                name="contact_position"
+                required
+                value={formData.contact_position}
+                onChange={handleChange}
+              />
+              {formData.contact_position === "" && (
+                <div className="item-form__error">
+                  <img
+                    className="item-form__error-icon"
+                    src={errorIcon}
+                    alt="Error"
+                  />
+                  <div className="item-form__error-text">
+                    <p>This field is required!</p>
+                  </div>
+                </div>  
+              )}
+              <label className="itemform--label">Phone Number</label>
+              <input
+                className="itemform--input"
+                type="number"
+                placeholder="Phone Number"
+                name="contact_phone"
+                required
+                value={formData.contact_phone}
+                onChange={handleChange}
+              />
+              {formData.contact_phone === "" && (
+                <div className="item-form__error">
+                  <img
+                    className="item-form__error-icon"
+                    src={errorIcon}
+                    alt="Error"
+                  />
+                  <div className="item-form__error-text">
+                    <p>This field is required!</p>
+                  </div>
+                </div>  
+              )}
+              <label className="itemform--label">Email</label>
+              <input
+                className="itemform--input"
+                type="email"
+                placeholder="Email"
+                name="contact_email"
+                required
+                value={formData.contact_email}
+                onChange={handleChange}
+              />
+              {formData.contact_email === "" && (
+                <div className="item-form__error">
+                  <img
+                    className="item-form__error-icon"
+                    src={errorIcon}
+                    alt="Error"
+                  />
+                  <div className="item-form__error-text">
+                    <p>This field is required!</p>
+                  </div>
+                </div>  
+              )}
+              {/* End of script */}
+            </div>
+            </div>
+          <div>
+                <div className="action--items">
+                  <button type="button" className="__button-cancel">
+                    Cancel
+                  </button>
+                  <button type="submit" className="__button">
+                    + Add Item
+                  </button>
+                </div>
+                
           </div>
-        </div>
-        <hr className="form__hr"></hr>
-        <div className="form__contactdetails">
-          <p className="form__subtitle">Contact Details</p>
-          <div className="form__container">
-            <div className="form__detail">
-              <label className="form__label">Contact Name</label>
-              <input className="form__input" defaultValue={whItem.contact_name}
-                 name="contactname"  ></input>
-            
-            <div className="contactname-Valid" id="contactname-Valid">
-                <img
-                  className="contactname-Valid__img"
-                  src={error}
-                  alt="error"
-                />
-                <span className="contactname-Valid__text">
-                  This field is required
-                </span>
-              </div></div>
-            <div className="form__detail">
-              <label className="form__label">Position</label>
-              <input className="form__input" defaultValue={whItem.contact_position} name="position"
-                            ></input>
-            
-            <div className="position-Valid" id="position-Valid">
-                <img className="position-Valid__img" src={error} alt="error" />
-                <span className="position-Valid__text">
-                  This field is required
-                </span>
-              </div></div>
-            <div className="form__detail">
-              <label className="form__label">Phone Number</label>
-              <input className="form__input" defaultValue={whItem.contact_phone}  name="phonenumber"
-                               ></input>
-            
-            <div className="phonenumber-Valid" id="phonenumber-Valid">
-                <img
-                  className="phonenumber-Valid__img"
-                  src={error}
-                  alt="error"
-                />
-                <span className="phonenumber-Valid__text">
-                  This field is required
-                </span>
-              </div></div>
-            <div className="form__detail">
-              <label className="form__label">Email</label>
-              <input className="form__input" defaultValue={whItem.contact_email}  name="email"
-                               ></input>
-            
-            <div className="email-Valid" id="email-Valid">
-                <img className="email-Valid__img" src={error} alt="error" />
-                <span className="email-Valid__text">
-                  This field is required
-                </span>
-              </div></div>
-          </div>
-        </div>
-      </div>
-
-      <div className="form__btns">
-      <Link to="/warehouse">
-        <button className="form__btncancel">Cancel</button>
-        </Link>
-        <button className="form__btnsave">Save</button>
-      </div>
-      </div>
-        ))}
-    </form>
-    </>
-  );
+        </form>
+      </section>
+    )
 }
 
-export default EditWarehouse;
+export default WarehouseDetails;
