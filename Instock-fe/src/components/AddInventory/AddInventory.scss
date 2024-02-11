@@ -17,9 +17,7 @@
     width: stretch;
     top: 140px;
     margin: 0 17px 300px 17px;
-    @include medium{
-
-    }
+    
     &__heading{
         display:flex;
         flex-direction: row;
@@ -27,22 +25,32 @@
         border-bottom: 1px solid $secondaryLight;
         @include medium{
             align-content: center;
+            font-size: 1.5rem;;
         }
-            &-arrow{
-                display:flex;
-                align-self: flex-start;
-                padding-top:4%;
-                @include medium{
-                    padding-top:0;
-                }
+        @include large{
+            align-content: center;
+            font-size: 1.5rem;
+            padding: 5% 5% 2% 5%;
+        }
+        &-arrow{
+            display:flex;
+            align-self: flex-start;
+            padding-top:4%;
+            @include medium{
+                padding-top:1rem;
             }
-            &-title{
-                margin:0 0;
+            @include large{
+                padding-top:1rem;
             }
-            }
+        }
+        &-title{
+            margin:0 0;
+        }
+        }
     &__container{
         display:flex;
         flex-direction:column;
+    
 
     }
 }
@@ -55,26 +63,25 @@
     @include large{
         flex-direction:column;
     }
-    &__container{
+    &__details-availability-container {
         @include medium{
         display:flex;
         flex-direction:row;
     }
     @include large{
-        flex-direction:column;
-    }
-    @include medium{
         display:flex;
         flex-direction:row;
     }
-    }
+}
     &__details{
         display:flex;
         flex-direction:column;
         @include medium{
             width:50%;
         }
-
+        @include large{
+            width:50%;
+        }
     }
     &__availability{
         display:flex;
@@ -82,9 +89,15 @@
         @include medium{
             width:50%;
         }
+        @include large{
+            width:50%;
+        }
     }
     &__title{
         margin: 5% 0 5% 5%;
+        @include large{
+            font-size: 1.8rem;
+        }
 
     }
     &__label{
@@ -93,6 +106,9 @@
         margin:2% 0 2% 5%;
         @include medium{
             margin-top:7%;
+        }
+        @include large{
+            font-size: 1rem;
         }
     }
     &__input{
@@ -105,6 +121,10 @@
         margin:auto;
         border: 1px solid $secondaryLight;
         @include medium{
+            margin-top:0;
+            margin-bottom:0;
+        }
+        @include large{
             margin-top:0;
             margin-bottom:0;
         }
@@ -132,16 +152,30 @@
             margin-top:0;
             margin-bottom:0;
         }
+        @include large{
+            margin-top:0;
+            margin-bottom:0;
+            width:85%;
+        }
     }
     &__line{
         border:.5px solid $secondaryLight;
-        margin: 7% 0 0 0;
+        margin: 2% 0 0 0;
         @include medium{
             border-right: 1px solid $secondaryLight;
             position: absolute;
             top: 14.5%;
             left: 50%;
             bottom: 17%;
+            margin: 5% 0 0 0;
+        }
+        @include large{
+            border-right: 1px solid $secondaryLight;
+            position: absolute;
+            top: 14.5%;
+            left: 50%;
+            bottom: 17%;
+            margin: 3% 0 0 0;
         }
     }
     &__status{
@@ -156,9 +190,9 @@
             width:50%;
             @include medium{
                 width:40%;
-                @include large{
-                    width:20%;
-                }
+            @include large{
+                width:20%;
+            }
             }
             &-text{
                 margin:0 5%;
@@ -195,17 +229,32 @@
             display: flex;
             justify-content:flex-end;
         }
+        @include large{
+            display: flex;
+            justify-content:flex-end;
+        }
             &-cancel{
                 background-color:$primaryLight;
                 color:$secondraryDark;
                 height:36px;
                 max-height:36px;
                 border-radius:20px;
-                width:50%;
                 border: 1px solid $secondaryLight;
+                width:6rem;
+                padding-top: 0.3rem;;
                 @include medium {
                     width:45%;
+                    min-width:5rem;
+                    max-height:38px;
+                    height:38px;
                 }
+                @include large {
+                    width:6rem;
+                    max-height:38px;
+                    height:38px;
+                    margin-right: 2rem;
+                }
+
             }
             &-add{
                 background-color:$primaryMedium;
@@ -222,8 +271,11 @@
                 justify-content: space-between;
                 width:100%;
                 @include medium{
-
                     width:35%;
+                }
+                @include large{
+                    width: 30%;
+                    justify-content: flex-end;
                 }
             }
         }
@@ -231,13 +283,17 @@
 }
 
 ::placeholder{
-    color:$secondraryDark;    
+    color:$secondraryDark;  
 }
 
 textarea{
     color:$secondraryDark;
     padding-left:5%;
     padding-top:2%;
+    &:focus {
+        outline: none !important;
+        border:1px solid $primaryMedium;
+      }
     
 }
 
@@ -248,6 +304,10 @@ select{
     background-image:url(../../assets/icons/arrow_drop_down-24px.svg);
     background-repeat:no-repeat;
     background-position: 96% 50%;
+    &:focus {
+        outline: none !important;
+        border:1px solid $primaryMedium;
+      }
 }
 
 option{
@@ -258,4 +318,11 @@ option{
 input{
     color:$secondraryDark;
     padding-left:5%;
+    &:focus {
+        outline: none !important;
+        border:1px solid $primaryMedium;
+      }
 }
+a {
+    text-decoration: none;
+    }

@@ -1,0 +1,93 @@
+@import '../../styles/partials/breakpoints';
+@import '../../styles/partials/colors';
+
+.delete{
+    background-color: #0008;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    min-height: 100vh;
+    height: 100%;
+
+    &__content{
+        background-color: #fff;
+        padding: 24px 32px;
+        position: relative;
+        
+        @include small{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        @include medium{
+            margin: 120px auto 0;
+            max-width: 672px;
+        }
+
+        @include large{
+            margin: 120px auto 0;
+            max-width: 672px;
+        }
+
+        &--close{
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            cursor: pointer;
+        }
+
+        &--title{
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        &--text{
+            margin-bottom: 24px;
+        }
+
+        &--actions{
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+            @include small{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 24px 32px;
+            }
+
+            & button{
+                border-radius: 24px;
+                padding: 8px 24px;
+                cursor: pointer;
+                outline: none;
+
+                @include small{
+                    width: 50%;
+                }
+            }
+
+            &__cancel{
+                border: 1px solid #ccc;
+                background-color: $primaryLight;
+                color: $primaryDark;
+                margin-right: 8px;
+            }
+
+            &__delete{
+                background-color: $outOfStock;
+                border: 1px solid $outOfStock;
+                color: $primaryLight;
+                margin-left: 8px;
+            }
+        }
+    }
+}

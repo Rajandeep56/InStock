@@ -49,6 +49,14 @@
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .addInventory__heading {
     align-content: center;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .addInventory__heading {
+    align-content: center;
+    font-size: 1.5rem;
+    padding: 5% 5% 2% 5%;
   }
 }
 .addInventory__heading-arrow {
@@ -58,7 +66,12 @@
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .addInventory__heading-arrow {
-    padding-top: 0;
+    padding-top: 1rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .addInventory__heading-arrow {
+    padding-top: 1rem;
   }
 }
 .addInventory__heading-title {
@@ -84,18 +97,13 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .item-form__container {
+  .item-form__details-availability-container {
     display: flex;
     flex-direction: row;
   }
 }
 @media only screen and (min-width: 1280px) {
-  .item-form__container {
-    flex-direction: column;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .item-form__container {
+  .item-form__details-availability-container {
     display: flex;
     flex-direction: row;
   }
@@ -109,6 +117,11 @@
     width: 50%;
   }
 }
+@media only screen and (min-width: 1280px) {
+  .item-form__details {
+    width: 50%;
+  }
+}
 .item-form__availability {
   display: flex;
   flex-direction: column;
@@ -118,8 +131,18 @@
     width: 50%;
   }
 }
+@media only screen and (min-width: 1280px) {
+  .item-form__availability {
+    width: 50%;
+  }
+}
 .item-form__title {
   margin: 5% 0 5% 5%;
+}
+@media only screen and (min-width: 1280px) {
+  .item-form__title {
+    font-size: 1.8rem;
+  }
 }
 .item-form__label {
   font-size: 0.81rem;
@@ -129,6 +152,11 @@
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .item-form__label {
     margin-top: 7%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .item-form__label {
+    font-size: 1rem;
   }
 }
 .item-form__input {
@@ -142,6 +170,12 @@
   border: 1px solid #bdc5d5;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .item-form__input {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 1280px) {
   .item-form__input {
     margin-top: 0;
     margin-bottom: 0;
@@ -173,9 +207,16 @@
     margin-bottom: 0;
   }
 }
+@media only screen and (min-width: 1280px) {
+  .item-form__dropdown {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 85%;
+  }
+}
 .item-form__line {
   border: 0.5px solid #bdc5d5;
-  margin: 7% 0 0 0;
+  margin: 2% 0 0 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .item-form__line {
@@ -184,6 +225,17 @@
     top: 14.5%;
     left: 50%;
     bottom: 17%;
+    margin: 5% 0 0 0;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .item-form__line {
+    border-right: 1px solid #bdc5d5;
+    position: absolute;
+    top: 14.5%;
+    left: 50%;
+    bottom: 17%;
+    margin: 3% 0 0 0;
   }
 }
 .item-form__status {
@@ -243,18 +295,36 @@
     justify-content: flex-end;
   }
 }
+@media only screen and (min-width: 1280px) {
+  .item-form__button {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
 .item-form__button-cancel {
   background-color: #ffffff;
   color: #5c667e;
   height: 36px;
   max-height: 36px;
   border-radius: 20px;
-  width: 50%;
   border: 1px solid #bdc5d5;
+  width: 6rem;
+  padding-top: 0.3rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .item-form__button-cancel {
     width: 45%;
+    min-width: 5rem;
+    max-height: 38px;
+    height: 38px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .item-form__button-cancel {
+    width: 6rem;
+    max-height: 38px;
+    height: 38px;
+    margin-right: 2rem;
   }
 }
 .item-form__button-add {
@@ -277,6 +347,12 @@
     width: 35%;
   }
 }
+@media only screen and (min-width: 1280px) {
+  .item-form__button-container {
+    width: 30%;
+    justify-content: flex-end;
+  }
+}
 
 ::-moz-placeholder {
   color: #5c667e;
@@ -291,6 +367,10 @@ textarea {
   padding-left: 5%;
   padding-top: 2%;
 }
+textarea:focus {
+  outline: none !important;
+  border: 1px solid #2e66e5;
+}
 
 select {
   color: #5c667e;
@@ -302,6 +382,10 @@ select {
   background-repeat: no-repeat;
   background-position: 96% 50%;
 }
+select:focus {
+  outline: none !important;
+  border: 1px solid #2e66e5;
+}
 
 option {
   color: #5c667e;
@@ -311,4 +395,12 @@ option {
 input {
   color: #5c667e;
   padding-left: 5%;
+}
+input:focus {
+  outline: none !important;
+  border: 1px solid #2e66e5;
+}
+
+a {
+  text-decoration: none;
 }/*# sourceMappingURL=AddInventory.css.map */

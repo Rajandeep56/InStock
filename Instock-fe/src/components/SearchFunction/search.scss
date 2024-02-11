@@ -1,0 +1,29 @@
+@import "../../styles/partials/breakpoints";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/fonts";
+
+.__search{
+
+        background-image: url("../../assets/icons/search-24px.svg");
+        background-repeat: no-repeat;
+        background-position: 94%;
+        width: stretch;
+        border-radius: 1.25rem; 
+        padding: 0.4375rem 1rem; 
+        border: 0.0625rem solid $secondaryLight; 
+        margin-bottom: 0.9375rem; 
+        
+    
+        &:focus {
+          outline: none;
+          border: 0.0625rem solid $primaryMedium; 
+        }
+    
+        @include medium {
+          margin: 0 0.9375rem 0 0; 
+        }
+}
+
+.container--search{
+  margin-right: 5%;
+}

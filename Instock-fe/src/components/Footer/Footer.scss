@@ -13,11 +13,4 @@
     padding: 2.5rem;
     width: stretch;
     position: absolute;
-    bottom: -45.875rem; 
-    @include medium {
-        bottom: -29.313rem; 
-    }
-    @include large {
-        bottom: -75.813rem; 
-    }
 }

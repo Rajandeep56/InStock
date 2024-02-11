@@ -18,6 +18,7 @@ app.get('/', (req,res) => {
 
 
 app.use("/api/warehouses", warehouseRoutes);
+app.use("/api/inventories", inventoryRoutes);
 app.use("/inventory", inventoryRoutes);
 
 

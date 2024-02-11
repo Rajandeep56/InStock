@@ -4,75 +4,51 @@
 
 .inventoryList {
   position: absolute;
-  top: 8.75rem; 
   background: $primaryLight;
   border-radius: 0.25rem; 
   box-shadow: 0rem 0.125rem 0.3125rem rgba(19, 24, 44, 0.1); 
-  width: stretch;
-  margin: 0 1.0625rem; 
-  @include medium {
-    margin: 0 4% 6.25rem 4%; 
-    top: 5.9375rem; 
-  }
-  @include large {
-    margin: 0 10% 9.375rem 10%; 
-  }
-  &__main {
-    padding: 0.9375rem 0; 
-    border-bottom: 0.0625rem solid $secondaryLight; 
-    @include medium {
-      display: flex;
-      justify-content: space-between;
-    }
-    &:hover {
-      background-color: rgba(46, 102, 230, 0.07);
-    }
-  }
-  &__header {
-    @include medium {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0.9375rem 4%; 
-    }
-  }
+  width: 70%;
+  height: 50rem;
+  top: 33rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
   &__title {
     color: $primaryDark;
     font-weight: 600;
     margin: 0.75rem 0; 
-    @include medium {
-      margin: 0.625rem 0 0 0; 
-    }
   }
-  &__form-container {
-    width: stretch;
-    @include medium {
-      padding-top: 0.375rem; 
-      width: 53%;
-    }
-    @include large {
-      width: 44%;
-    }
-  }
+ 
   &__form {
     display: flex;
-    flex-direction: column;
     padding: 0.9375rem 7%; 
     margin: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 4%; 
     @include medium {
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 0.9375rem 4%; 
-      margin: 0;
+
+      width: 100%
     }
+
+    &-container {
+        width: 60%;
   }
+  }
+
   &__form-sub {
     padding-bottom: 0.3125rem; 
-    @include medium {
       display: flex;
-      height: 2.375rem; 
+      height: 3.5rem; 
       margin-top: 0.625rem; 
-    }
+      margin-right: 1rem;
+      margin-left: 1rem;
+      justify-content: flex-end;
+      @include medium {
+        margin-right: 0;
+
+      }
+    
   }
   &__search {
     background-image: url("../../assets/icons/search-24px.svg");
@@ -82,30 +58,32 @@
     border-radius: 1.25rem; 
     padding: 0.4375rem 1rem; 
     border: 0.0625rem solid $secondaryLight; 
-    margin-bottom: 0.9375rem; 
+    margin: 0 0.9375rem 0 0; 
+    width: 20rem;
+    height: 2.44rem;
 
     &:focus {
       outline: none;
       border: 0.0625rem solid $primaryMedium; 
     }
-
     @include medium {
-      margin: 0 0.9375rem 0 0; 
+      width: 9.125rem; 
     }
+
   }
   &__button {
     background-color: $primaryMedium;
     color: $primaryLight;
-    width: stretch;
     border-radius: 1.25rem; 
     border: none;
     padding: 0 1rem; 
     margin-bottom: 0.3125rem; 
-    height: 2.25rem; 
+    width: 8.125rem; 
+    height: 2.44rem; 
     @include medium {
-      height: 2.375rem; 
-      width: 8.125rem; 
+      width: 7.8rem; 
     }
+
 
     &:hover {
       background-color: $primaryDark;
@@ -113,9 +91,7 @@
   }
   &__list-divider {
     border-bottom: 0.0625rem solid $secondaryLight; 
-    @include medium {
-      display: none;
-    }
+    display: none;
   }
   &__category-box {
     background-color: $backgroundLight;
@@ -125,58 +101,23 @@
     display: flex;
     justify-content: space-between;
     padding: 0.625rem 0; 
+    margin-left: 3rem;
     @include medium {
-      display: flex;
-      justify-content: space-between;
-      height: 2.5rem; 
-      background-color: $backgroundLight;
-      margin: 0 4%;
+    margin-left: 0;
+    font-size: 0.8rem;
+    margin-left: 1rem;
     }
   }
   
   &__category-title {
     flex: 1;
     text-align: center;
-    @include medium {
-      font-weight: 600;
+    font-weight: 600;
       color: $secondraryDark;
       margin: 0.5rem 0; 
       display: flex;
-      align-items: center;
-    }
-  }
-  &__parent-section {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    height: 10.625rem; 
-    padding: 0 6.5% 0.3125rem 6.5%; 
-    @include medium {
-      flex-direction: row;
-      align-items: center;
-      height: auto;
-      width: 100%;
-      padding: 0 4%;
-      justify-content: space-between;
-    }
-  }
-  &__text {
-    color: $secondraryDark;
-    @include medium {
-      width: 5.625rem; 
-    }
-  }
-  &__item-container {
-    display: flex;
-    flex-direction: column;
-  }
-  &__item-heading {
-    line-height: 1rem; 
-    margin: 0 0 0.3125rem 0; 
-    font-weight: 600;
-    @include medium {
-      display: none;
-    }
+      align-items: left;
+    
   }
   &__item {
     display: flex;
@@ -185,148 +126,79 @@
     line-height: 1.25rem; 
     margin: 0;
     color: $primaryMedium;
-    @include medium {
-      width: 9.6875rem; 
-    }
+    
+    &-containet
+    &:hover, &-row:hover {
+      background-color: $backgroundLight;
+      border-bottom: 0.05rem solid $secondaryLight;
+      margin:0;
+      padding-left: 3rem;
+  }
     &-row {
         display: flex;
         justify-content: space-between;
         padding: 0.625rem 0; 
+        margin-left: 3rem;
+      @include medium {
+        margin-left: 1rem;
+        font-size: 0.8rem;
       }
+    }
     &-detail{
     flex: 1;
-    text-align: center;
+    text-align: left;
+    a {
+      text-decoration: none; 
+      font-weight: 600;
+      color: $primaryMedium; 
+  }
+  img {
+    bottom: -0.4rem;
+    position: relative;
+  }
+
   }
   }
   &__actions-detail{
     flex: 1;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 0.625rem; 
   }
-  &__category-heading {
-    height: 1rem; 
-    line-height: 1rem; 
-    margin: 1rem 0 0.3125rem 0; 
-    font-weight: 600;
-    @include medium {
-      display: none;
-    }
-  }
-  &__category {
-    line-height: 1.25rem; 
-    margin: 0 0 2.5rem 0; 
-    @include medium {
-      margin: 0;
-      width: 6.875rem; 
-      padding-left: 0.1875rem; 
-    }
-  }
-  &__category-inventory {
-    @include medium {
-      padding-right: 2.625rem; 
-    }
-  }
-  &__category-status {
-    @include medium {
-      padding-left: 2.1875rem; 
-    }
-  }
-  &__category-quantity {
-    @include medium {
-      padding-left: 3.4375rem; 
-      width: 3.125rem; 
-    }
-  }
-  &__category-warehouse {
-    @include medium {
-      padding-right: 2.1875rem; 
-    }
-  }
-  &__status-heading {
-    line-height: 1rem; 
-    margin: 1rem 0 0.3125rem 0; 
-    @include medium {
-      display: none;
-    }
-  }
-  &__status-container {
-    @include medium {
-      width: 7.5rem; 
-    }
-  }
-  &__status {
-    line-height: 1rem; 
-    text-transform: uppercase;
-    font-size: 0.67rem; 
+  
+  &__item-detail-status {
+    line-height: 0.3rem; 
+    text-transform: uppercase; 
     margin: 0;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: center;
+
+    &--in-stock {
     color: $inStock;
     background: rgba(21, 132, 99, 0.07);
-    padding: 0.1875rem 0.25rem; 
+    padding: 0.8rem 0;
     border-radius: 1.25rem; 
+    max-width: 6rem;
     @include medium {
-      width: 60%;
+      max-width: 5rem;
     }
-  }
-  &__quantity-heading {
-    line-height: 1rem; 
-    margin: 1rem 0 0.3125rem 0; 
-    @include medium {
-      display: none;
     }
+   
+    &--out-of-stock {
+      background: rgba(255, 0, 0, 0.07); 
+      color: $outOfStock;
+      padding: 0.9rem 0; 
+      border-radius: 1.25rem; 
+      max-width: 7rem;
+      @include medium {
+        max-width: 6rem;
+      }
   }
-  &__quantity {
-    margin: 0;
-    @include medium {
-      width: 3.125rem; 
-      padding-right: 0.3125rem; 
-    }
+
   }
-  &__warehouse-heading {
-    margin: 1rem 0 0.3125rem 0; 
-    font-weight: 600;
-    @include medium {
-      display: none;
-    }
-  }
-  &__warehouse {
-    margin: 0;
-    @include medium {
-      padding-right: 0.9375rem; 
-    }
-  }
-  &__action-section-hide {
-    display: none;
-    @include medium {
-      display: inline-block;
-    }
-  }
-  &__action-section-hide-medium {
-    @include medium {
-      display: none;
-    }
-  }
-  &__action-logo-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 6.5%;
-    padding-bottom: 0.125rem; 
-    @include medium {
-      margin: 0;
-      padding: 0;
-    }
-  }
-  &__action-heading {
-    display: none;
-    @include medium {
-      display: none;
-    }
-  }
-  &__delete-icon {
-    background: none;
-    padding-right: 0.3125rem; 
-  }
+
 }
 
 button {

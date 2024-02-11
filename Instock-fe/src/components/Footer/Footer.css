@@ -34,15 +34,4 @@
   width: -moz-available;
   width: stretch;
   position: absolute;
-  bottom: -45.875rem;
-}
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .footer__text {
-    bottom: -29.313rem;
-  }
-}
-@media only screen and (min-width: 1280px) {
-  .footer__text {
-    bottom: -75.813rem;
-  }
 }/*# sourceMappingURL=Footer.css.map */

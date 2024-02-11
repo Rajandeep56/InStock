@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "warehouse_id": 1,
-    "item_name": "Television Test Rajan",
-    "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
-    "category": "Electronics",
+    "warehouse_name": "New York",
+    "item_name": "newtv",
+    "description": "test",
+    "category": "tv",
     "status": "In Stock",
     "quantity": 500
   },

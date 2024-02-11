@@ -1,0 +1,115 @@
+@import "../../styles/partials/global.scss";
+@import "../../styles/partials/colors.scss";
+@import "../../styles/partials/breakpoints.scss";
+
+.addWarehouse {
+  @include medium {
+    margin-top: 1rem;
+    background-color: $primaryLight;
+    width: 100%;
+    position: absolute;
+    top: 16rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include large {
+    margin-top: 1rem;
+    background-color: $primaryLight;
+    width: 70%;
+    height: 50rem;
+    position: absolute;
+    top: 32rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &--heading {
+      padding-left: 4rem;
+      padding-bottom: 2rem;
+      display: flex;
+      flex-direction: row;
+      padding-top: 2.5rem;
+      border-bottom: 1px solid $secondaryLight;
+    }
+
+    .container__item-form {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
+
+.container__warehousedetails {
+  flex: 1;
+  width: 50%;
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.container__contactdetails {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 50%;
+}
+
+.itemform--heading {
+  padding: 2rem 0rem;
+}
+
+.addWarehouse--arrow {
+  padding-right: 1rem;
+}
+.__button {
+  background-color: $primaryMedium;
+  color: $primaryLight;
+  width: 10rem;
+  border-radius: 1.25rem;
+  border: none;
+  padding: 0 1rem;
+  margin-bottom: 0.3125rem;
+  height: 2.25rem;
+  @include medium {
+    height: 2.375rem;
+    width: 8.125rem;
+  }
+
+  &:hover {
+    background-color: $primaryDark;
+  }
+
+  &-cancel {
+    @extend .__button;
+    background-color: $primaryLight;
+    color: $secondraryDark;
+    border: 1px solid $secondraryDark;
+    margin-right: 2rem;
+  }
+
+}
+
+.action--items {
+  background-color: $backgroundLight;
+  padding: 1rem 0rem 1rem 43rem;
+  margin-top: 1rem;
+}
+
+.itemform {
+  &--input {
+    width: 25rem;
+    height: 3rem;
+    border-radius: 20px;
+  }
+
+  &--label {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.item-form {
+  &__button-cancel {
+    width: 10rem;
+  }
+}

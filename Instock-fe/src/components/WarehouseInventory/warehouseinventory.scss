@@ -2,7 +2,8 @@
 @import "../../styles/partials/colors";
 @import "../../styles/partials/fonts";
 
-.warehouse--container-list {
+
+.inventory--container-list {
     @include medium{
       display: flex;
       flex-direction: row;
@@ -30,7 +31,7 @@
 }
 
 
-.warehouse-name{
+.inventory--name{
   @include medium{
     min-width: 20%;
     padding-top: 2rem;
@@ -46,8 +47,8 @@
         
 }
 
-.warehouse-address{
-    @extend .warehouse-name;
+.inventory--category{
+    @extend .inventory--name;
 
     @include large{
       min-width: 15%;
@@ -57,19 +58,18 @@
     
 }
 
-.warehouse-contactname{
-    @extend .warehouse-name;
+.inventory--status{
+    @extend .inventory--name;
     
 }
 
-.contact-information{
-    @extend .warehouse-name;
-  
-    
+.inventory--quantity{
+  @extend .inventory--name;
 }
+
+
 
 .action--icons{
-
     @include medium{
       display: flex;
       // justify-content: space-between;
@@ -86,12 +86,17 @@
           min-width: 30%;
           width: 30%;
            padding-right: 2rem;
+  
        }
     }
     
 }
 
-.warehouse--link{
+.inventory--link{
     text-decoration: none;
     color:$primaryMedium;
+}
+
+.pencil-color{
+  fill: white;
 }

@@ -1,1 +1,125 @@
-/*# sourceMappingURL=WarehouseDetails.css.map */
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: bold;
+}
+*,
+*::after,
+*::before {
+  font-family: "TitilliumWeb";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* media query for mobile */
+/* media query for tablet */
+/*media query for desktop */
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .warehouseDetails {
+    margin-top: 1rem;
+    background-color: #ffffff;
+    width: 100%;
+    position: absolute;
+    top: 16rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .warehouseDetails {
+    margin-top: 1rem;
+    background-color: #ffffff;
+    width: 70%;
+    height: 50rem;
+    position: absolute;
+    top: 32rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.warehouseDetails--heading {
+  padding-left: 4rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  padding-top: 2.5rem;
+  border-bottom: 1px solid #bdc5d5;
+}
+.warehouseDetails--title {
+  display: flex;
+  flex: 1;
+}
+.warehouseDetails--arrow {
+  padding-right: 1rem;
+}
+.warehouseDetails--editsection {
+  margin-left: 45rem;
+  flex: 1;
+}
+.warehouseDetails--contact {
+  display: flex;
+  flex-direction: row;
+}
+.warehouseDetails--address {
+  padding: 1rem 4rem;
+  flex: 1;
+}
+.warehouseDetails--contactinfo {
+  display: flex;
+  padding: 1rem 4rem;
+  flex: 1;
+}
+.warehouseDetails--contactinfo-1 {
+  margin-right: 4rem;
+}
+.warehouseDetails--contactinfo-2 {
+  margin-left: 4rem;
+}
+
+.container__vertical {
+  padding: 1rem 0rem;
+  flex: 0.1;
+}
+.container__vertical-line {
+  width: 1px; /* Adjust the width as needed */
+  height: 70px; /* Adjust the height as needed */
+  background-color: #bdc5d5;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .warehouse-list-title {
+    padding-right: 0rem;
+    margin: 1rem 0rem 0rem 3rem;
+    display: flex;
+    flex-direction: row;
+    width: 17%;
+  }
+  .warehouse-list-title img {
+    margin: -1.5rem 0rem 0rem -3rem;
+    width: 20%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .warehouse-list-title {
+    margin: 1rem 5rem 0rem 3rem;
+    display: flex;
+    flex-direction: row;
+    width: 7rem;
+  }
+  .warehouse-list-title img {
+    margin: -1.5rem 0rem 0rem 0.5rem;
+    width: 30%;
+  }
+}
+
+.warehouseDetails--inventorylist {
+  display: flex;
+}/*# sourceMappingURL=WarehouseDetails.css.map */

@@ -1,0 +1,121 @@
+@import "../../styles/partials/global.scss";
+@import "../../styles/partials/colors.scss";
+@import "../../styles/partials/breakpoints.scss";
+
+.warehouseDetails {
+  @include medium {
+    margin-top: 1rem;
+    background-color: $primaryLight;
+    width: 100%;
+    position: absolute;
+    top: 16rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include large {
+    margin-top: 1rem;
+    background-color: $primaryLight;
+    width: 70%;
+    height: 50rem;
+    position: absolute;
+    top: 32rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &--heading {
+    padding-left: 4rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    padding-top: 2.5rem;
+    border-bottom: 1px solid $secondaryLight;
+  }
+
+  &--title{
+    display: flex;
+    flex: 1;
+
+  }
+
+  &--arrow{
+    padding-right: 1rem;
+  }
+
+  &--editsection{
+    margin-left: 45rem;
+    flex: 1;
+  }
+
+  &--contact{
+    display: flex;
+    flex-direction: row;
+  }
+
+  &--address{
+    padding: 1rem 4rem;
+    flex: 1;
+  }
+
+  &--contactinfo{
+    display: flex;
+    padding: 1rem 4rem;
+    flex: 1;
+
+    &-1{
+        margin-right: 4rem;
+    }
+    &-2{
+        margin-left: 4rem;
+    }
+
+   
+  }
+
+  
+}
+
+.container__vertical{
+    padding: 1rem 0rem;
+    flex: 0.1;
+
+        &-line{
+            width: 1px; /* Adjust the width as needed */
+            height: 70px; /* Adjust the height as needed */
+            background-color: $secondaryLight;
+        }
+ }
+
+ .warehouse-list-title{
+    @include medium{
+        padding-right: 0rem;
+        margin: 1rem 0rem 0rem 3rem;
+        display: flex;
+        flex-direction: row;
+        width: 17%;
+
+    img{
+        margin: -1.5rem 0rem 0rem -3rem;
+        width: 20%;
+        
+    }
+    }
+    @include large{
+            margin: 1rem 5rem 0rem 3rem;
+            display: flex;
+            flex-direction: row;
+            width:7rem;
+    
+        img{
+            margin: -1.5rem 0rem 0rem 0.5rem;
+            width: 30%;
+            
+        }
+    }
+    
+}
+
+.warehouseDetails--inventorylist{
+    display: flex;
+}

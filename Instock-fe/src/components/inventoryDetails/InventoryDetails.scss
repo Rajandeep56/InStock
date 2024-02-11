@@ -30,10 +30,11 @@
   &-top {
     display: flex;
     flex-direction: row;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
     border-bottom: 1px solid cl.$secondaryLight;
     align-items: baseline;
-
+    background-color: #ffffff;
+    position: relative;
     &__backIcon {
       @include bk.small {
         flex: 0 0 10%;
@@ -209,7 +210,6 @@
         }
         @include bk.large {
           margin-right: 3rem;
-          width: 80%;
         }
         &Text {
           font-weight: 400;

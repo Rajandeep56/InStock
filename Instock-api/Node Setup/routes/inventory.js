@@ -1,14 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const knex = require('knex')(require('../../DB Setup/knexfile'));
-const fs = require("fs");
-const { fetchInventories, addInventoryItem } = require("../../controllers/inventoryControllers");
-
-
+const { fetchInventories, addInventoryItem} = require("../../Controllers/inventoryControllers");
+require('dotenv').config();
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
-  
+  console.log('ID:', id); 
   try {
     const currentItem = await knex('inventories').where({ id: parseInt(id) }).first();
 
@@ -25,21 +23,21 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { item_name, description, category, status, warehouse_id } = req.body;
-
+  const { item_name, description, quantity, category, status, warehouse_id } = req.body;
   try {
+    
     const updatedItem = await knex('inventories')
       .where({ id: parseInt(id) })
       .update({
-        warehouse_id: parseInt(warehouse_id),
+        warehouse_id,
         item_name,
         description,
         category,
-        status
+        status,
+        quantity
       });
-
     if (updatedItem) {
-      res.json({ success: true, message: `Item with id ${id} updated successfully.` });
+      res.json({ success: true, message: `Item with id ${id} updated successfully. ${warehouse_id}` });
     } else {
       res.status(404).json({ error: 'Item not found' });
     }
@@ -50,6 +48,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  console.log(process.env.DB_HOST, process.env.DB_USER, process.env.DB_PASSWORD)
   try {
     const inventories = await fetchInventories();
     res.status(200).json(inventories);
@@ -59,30 +58,38 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/add", addInventoryItem);
 
-router.post("/", async (req, res) => {
+
+//pull categpries
+router.get('/cat/categories', async (req, res) => {
   try {
-    const { itemName, description, category, status, quantity, warehouseName } = req.body;
-
-    if (!itemName || !description || !category || !status || !quantity || !warehouseName) {
-      return res.status(400).json({ error: "Missing required fields" });
-    }
-
-    const newItem = await addInventoryItem({
-      item_name: itemName,
-      description,
-      category,
-      status,
-      quantity: Number(quantity),
-      warehouse_id: warehouseName, 
-    });
-
-    res.status(201).json(newItem);
+    const uniqueCategories = await knex('inventories').distinct('category');
+    res.status(200).json(uniqueCategories);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const item = await knex('inventories').where({ id: parseInt(id) }).first();
+
+    if (!item) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
+
+    await knex('inventories')
+      .where({ id: id })
+      .del();
+
+    return res.status(204).json({message: "Inventory item deleted successfully"});
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 
 module.exports = router;

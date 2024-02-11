@@ -1,0 +1,40 @@
+/* media query for mobile */
+/* media query for tablet */
+/*media query for desktop */
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: bold;
+}
+.__search {
+  background-image: url("../../assets/icons/search-24px.svg");
+  background-repeat: no-repeat;
+  background-position: 94%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  border-radius: 1.25rem;
+  padding: 0.4375rem 1rem;
+  border: 0.0625rem solid #bdc5d5;
+  margin-bottom: 0.9375rem;
+}
+.__search:focus {
+  outline: none;
+  border: 0.0625rem solid #2e66e5;
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .__search {
+    margin: 0 0.9375rem 0 0;
+  }
+}
+
+.container--search {
+  margin-right: 5%;
+}/*# sourceMappingURL=search.css.map */

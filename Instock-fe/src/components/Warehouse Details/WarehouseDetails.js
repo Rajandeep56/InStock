@@ -1,19 +1,38 @@
-import {useParams} from 'react-router-dom';
-import Axios from 'axios';
-import React, {useState, useEffect} from 'react';
+import React from "react";
+import { useParams } from "react-router-dom";
+import arrowBack from "../../assets/icons/arrow_back-24px.svg";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import './warehousedetails.scss';
+import EditIcon from '../../assets/icons/edit-24px.svg';
+import Dropdown from '../../assets/icons/arrow_drop_down-24px.svg';
+import WarehouseInventory from '../WarehouseInventory/WarehouseInventory';
+import { Link } from "react-router-dom";
 import InventoryList from './../InventoryList/InventoryList'
 
 
-function WarehouseDetails ({props}) {
+export default function WarehouseDetails() {
+  const { id } = useParams();
+  const [warehouseDetails, setWarehouseDetails] = useState([]);
+  const [inventoryDetails, setInventoryDetails] = useState([]);
 
-    const {id} = useParams();
-    const [warehouse, setWarehouse] = useState(null);
+  const getWarehouseDetails = async () => {
+    try{
+        const urlAPI = `http://localhost:8088/api/warehouses/${id}`;
+        const response = await axios.get(urlAPI);
+        setWarehouseDetails(response.data)
+    }
+    catch(error){
+        console.error("Error fetching warehouse: ", error.message)
+    }
+    
+  }
 
     useEffect(() =>{
 
         const fetchWarehouseDetails = async () => {
             try{
-                const response = await Axios.get(`/api/warehouse/${id}`);
+                const response = await axios.get(`/api/warehouse/${id}`);
                 setWarehouse(response.data)
             }
             catch(error){
@@ -28,9 +47,6 @@ function WarehouseDetails ({props}) {
     return(
         <div className="container--title">
             
-            <InventoryList warehouseId={id} />
         </div>
     )
 }
-
-export default WarehouseDetails;

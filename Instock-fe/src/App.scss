@@ -1,0 +1,16 @@
+
+@import './styles/partials/colors.scss';
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 130vh;
+  }
+  
+ main {
+    flex: 1; 
+    background-color: $backgroundLight;
+    display: flex;
+   flex-direction: column;
+   
+  
+  }

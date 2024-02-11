@@ -14,7 +14,7 @@
   font-style: bold;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .warehouse--container-list {
+  .inventory--container-list {
     display: flex;
     flex-direction: row;
     padding-left: 3rem;
@@ -22,11 +22,11 @@
     width: 100%;
   }
 }
-.warehouse--container-list:hover {
+.inventory--container-list:hover {
   background-color: #f7f8f9;
 }
 @media only screen and (min-width: 1280px) {
-  .warehouse--container-list {
+  .inventory--container-list {
     display: flex;
     flex-direction: row;
     padding-left: 3rem;
@@ -34,19 +34,19 @@
     width: 100%;
   }
 }
-.warehouse--container-list:hover {
+.inventory--container-list:hover {
   background-color: #f7f8f9;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .warehouse-name, .contact-information, .warehouse-contactname, .warehouse-address {
+  .inventory--name, .inventory--quantity, .inventory--status, .inventory--category {
     min-width: 20%;
     padding-top: 2rem;
     margin: 0% 2%;
   }
 }
 @media only screen and (min-width: 1280px) {
-  .warehouse-name, .contact-information, .warehouse-contactname, .warehouse-address {
+  .inventory--name, .inventory--quantity, .inventory--status, .inventory--category {
     min-width: 15%;
     padding-top: 2rem;
     margin-right: 5%;
@@ -54,7 +54,7 @@
 }
 
 @media only screen and (min-width: 1280px) {
-  .warehouse-address {
+  .inventory--category {
     min-width: 15%;
     padding-top: 2rem;
     margin-right: 5rem;
@@ -81,7 +81,11 @@
   }
 }
 
-.warehouse--link {
+.inventory--link {
   text-decoration: none;
   color: #2e66e5;
-}/*# sourceMappingURL=WarehouseItems.css.map */
+}
+
+.pencil-color {
+  fill: white;
+}/*# sourceMappingURL=warehouseinventory.css.map */

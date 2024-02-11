@@ -18,6 +18,7 @@
   color: #ffffff;
   padding: 32px;
   height: 11.625rem;
+  position: relative;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .header {
@@ -33,7 +34,7 @@
 }
 .header__logo {
   position: absolute;
-  left: 12rem;
+  left: 16rem;
 }
 @media only screen and (max-width: 767px) {
   .header__logo {
@@ -74,13 +75,12 @@
 @media only screen and (min-width: 1280px) {
   .header__links {
     margin-left: auto;
-    margin-right: 10rem;
+    margin-right: 1rem;
   }
 }
 .header__links--link {
   color: #ffffff;
   text-decoration: none;
-  display: block;
   text-align: center;
 }
 .header__links--link:hover {

@@ -1,48 +1,352 @@
-.edit{
-    &__form{
-        display: flex;
-        flex-direction: column;
-        &-first{
-            display: flex;
-            flex-direction: column;
-            &--name{
+@import '../../styles/partials/global.scss';
+@import '../../styles/partials/colors.scss';
+@import '../../styles/partials/breakpoints.scss';
 
-            }
-            &--description{
+.editInventory{
+    display:flex;
+    flex-direction:column;
+    width:876px;
+    width: auto;
+    background: $primaryLight;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+    position: absolute;
+    left: 4.5%;
+    right: 4.5%;
+    top: 16%;
+    width: stretch;
+    top: 140px;
+    margin: 0 17px 300px 17px;
+    @include medium{
 
-            }
-            &--category{
-
-            }
+    }
+    &__heading{
+        display:flex;
+        flex-direction: row;
+        padding:5%;
+        border-bottom: 1px solid $secondaryLight;
+        @include medium{
+            align-content: center;
         }
-
-        &-second{
-            display: flex;
-            flex-direction: column;
-            &--status{
-                display: flex;
-                flex-direction: column;
-            }
-            &--warehouse{
-
-                &---value{
-
+            &-arrow{
+                display:flex;
+                align-self: flex-start;
+                padding-top:4%;
+                @include medium{
+                    padding-top:0;
                 }
             }
-            &--buttons{
-                display: flex;
-                flex-direction: row;
-
-                &---cancel{
-                    background-color: aquamarine;
-                }
-                &---save{
-                    background-color: beige;
-                }
+            &-title{
+                margin:0 0;
             }
+            }
+    &__container{
+        display:flex;
+        flex-direction:column;
 
+    }
+}
+.item-form{
+    display:flex;
+    flex-direction: column;
+    @include medium{
+        flex-direction:column;
+    }
+    @include large{
+        flex-direction:column;
+    }
+    &__container{
+        @include medium{
+        display:flex;
+        flex-direction:row;
+    }
+    @include large{
+        flex-direction:column;
+    }
+    @include medium{
+        display:flex;
+        flex-direction:row;
+    }
+    }
+    &__details{
+        display:flex;
+        flex-direction:column;
+        @include medium{
+            width:50%;
         }
 
     }
+    &__availability{
+        display:flex;
+        flex-direction:column;
+        @include medium{
+            width:50%;
+        }
+    }
+    &__title{
+        margin: 5% 0 5% 5%;
+
+    }
+    &__label{
+        font-size: 0.81rem;
+        font-weight:600;
+        margin:2% 0 2% 5%;
+        @include medium{
+            margin-top:7%;
+        }
+    }
+    &__input{
+        border-radius:20px;
+        height:36px;
+        max-height:36px;
+        margin-bottom:5%;
+        width:85%;
+        max-width:85%;
+        margin:auto;
+        border: 1px solid $secondaryLight;
+        @include medium{
+            margin-top:0;
+            margin-bottom:0;
+        }
+    }
+    &__description-input{
+        border-radius:20px;
+        height:120px;
+        max-height:120px;
+        margin-bottom:5%;
+        width:85%;
+        max-width:85%;
+        margin:auto;
+        border: 0.5px solid $secondaryLight;
+        resize:none;
+    }
+    &__dropdown{
+        border-radius:20px;
+        height:36px;
+        max-height:36px;
+        width:90%;
+        max-width:90%;
+        margin:auto;
+        border: 0.5px solid $secondaryLight;
+        @include medium{
+            margin-top:0;
+            margin-bottom:0;
+        }
+    }
+    &__line{
+        border:.5px solid $secondaryLight;
+        margin: 7% 0 0 0;
+        @include medium{
+            border-right: 1px solid $secondaryLight;
+            position: absolute;
+            top: 14.5%;
+            left: 50%;
+            bottom: 17%;
+        }
+    }
+    &__status{
+        display:flex;
+        flex-direction:row;
+        justify-content: left;
+        margin:0% 0 2% 5%;
+        &-container{
+            display:flex;
+            flex-direction:row;
+            justify-content: left;
+            width:50%;
+            @include medium{
+                width:40%;
+                @include large{
+                    width:20%;
+                }
+            }
+            &-text{
+                margin:0 5%;
+            }
+        }
+    }
+    &__error{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin:2% 0 0 5%;
+    
+    &-icon{
+        height:13.33px;
+        width:13.33px;
+        align-self: center;
+    }
+    &-text{
+        margin-left:2%;
+        font-size:0.81rem;
+        color:$outOfStock;
+    }
+}
+    &__button{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        height:68px;
+        background-color:$backgroundLight;
+        padding-left:5%;
+        padding-right:5%;
+        margin: 7% 0 0 0;
+        @include medium{
+            display: flex;
+            justify-content:flex-end;
+        }
+            &-cancel{
+                background-color:$primaryLight;
+                color:$secondraryDark;
+                display: flex;
+                text-decoration: none;
+                justify-content: center;
+                height:36px;
+                max-height:36px;
+                border-radius:20px;
+                width:50%;
+                border: 1px solid $secondaryLight;
+                @include medium {
+                    width:45%;
+                }
+            }
+            &-add{
+                background-color:$primaryMedium;
+                color:$primaryLight;
+                height:36px;
+                max-height:36px;
+                border-radius:20px;
+                width:45%;
+                border:none;
+            }
+            &-container{
+                display:flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width:100%;
+                @include medium{
+
+                    width:35%;
+                }
+            }
+        }
 
 }
+
+::placeholder{
+    color:$secondraryDark;    
+}
+
+textarea{
+    color:$secondraryDark;
+    padding-left:5%;
+    padding-top:2%;
+    
+}
+
+select{
+    color:$secondraryDark;
+    padding-left:5%;
+    appearance: none;
+    background-image:url(../../assets/icons/arrow_drop_down-24px.svg);
+    background-repeat:no-repeat;
+    background-position: 96% 50%;
+}
+
+option{
+    color:$secondraryDark;
+    padding-left:5%;
+}
+
+input{
+    color:$secondraryDark;
+    padding-left:5%;
+}
+
+// .edit{
+//     display:flex;
+//     flex-direction:column;
+//     width:876px;
+//     width: auto;
+//     background: $primaryLight;
+//     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+//     border-radius: 3px;
+//     position: absolute;
+//     left: 4.5%;
+//     right: 4.5%;
+//     top: 16%;
+//     width: stretch;
+//     top: 140px;
+//     margin: 0 17px 300px 17px;
+//     padding: 24px;
+
+//     &__heading{
+//         display:flex;
+//         flex-direction: row;
+//         padding:5%;
+//         border-bottom: 1px solid $secondaryLight;
+//         @include medium{
+//             align-content: center;
+//         }
+//             &-arrow{
+//                 display:flex;
+//                 align-self: flex-start;
+//                 padding-top:4%;
+//                 @include medium{
+//                     padding-top:0;
+//                 }
+//             }
+//             &-title{
+//                 margin:0 0;
+//             }
+
+//     }
+
+//     &__form{
+//         display: flex;
+//         flex-direction: column;
+//         &-first{
+//             display: flex;
+//             flex-direction: column;
+//             &--name{
+
+//             }
+//             &--description{
+
+//             }
+//             &--category{
+
+//             }
+//         }
+
+//         &-second{
+//             display: flex;
+//             flex-direction: column;
+//             &--status{
+//                 display: flex;
+//                 flex-direction: column;
+//             }
+//             &--warehouse{
+
+//                 &---value{
+
+//                 }
+//             }
+//             &--buttons{
+//                 display: flex;
+//                 flex-direction: row;
+
+//                 &---cancel{
+//                     background-color: aquamarine;
+//                 }
+//                 &---save{
+//                     background-color: beige;
+//                 }
+//             }
+
+//         }
+
+//     }
+   
+
+// }
