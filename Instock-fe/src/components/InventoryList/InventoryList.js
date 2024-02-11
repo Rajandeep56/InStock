@@ -85,15 +85,19 @@ const InventoryList = () => {
     </div>
     {inventoryList.map((item) => (
       <div key={item.id} className="inventoryList__item-row">
-        <div className="inventoryList__item-detail">{item.item_name}</div>
+        <div className="inventoryList__item-detail"><Link to={`/inventory/${item.id}`}>{item.item_name}<img src={rightIcon} alt="Details" /></Link></div>
         <div className="inventoryList__item-detail">{item.category}</div>
-        <div className="inventoryList__item-detail">{item.status}</div>
-        <div className="inventoryList__item-detail">{item.quantity}</div>
+        <div   className={`inventoryList__item-detail inventoryList__item-detail-status ${
+    item.status.toLowerCase() === 'in stock'
+      ? 'inventoryList__item-detail-status--in-stock'
+      : 'inventoryList__item-detail-status--out-of-stock'
+  }`}
+>{item.status}</div>
+        <div className="inventoryList__item-detail inventoryList__item-detail-quantity">{item.quantity}</div>
         <div className="inventoryList__item-detail" >{Array.isArray(warehouses) && warehouses.find(warehouse => String(warehouse.id) === String(item.warehouse_id))?.warehouse_name || 'Warehouse not found'}</div>
         <div className="inventoryList__actions-detail">
           <Link to={`/inventory/${item.id}/edit`}><img src={editIcon} alt="Edit" /></Link>
           <button onClick={() => deleteInventory(item)}><img src={deleteIcon} alt="Delete" /></button>
-          <Link to={`/inventories/${item.id}`}><img src={rightIcon} alt="Details" /></Link>
         </div>
       </div>
     ))}
