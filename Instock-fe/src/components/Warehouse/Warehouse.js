@@ -7,7 +7,7 @@ import "../SearchFunction/search.scss";
 import { Link } from 'react-router-dom';
 import "../AddWarehouse/AddWarehouse.scss"
 
-function Warehouse({ warehouses }) {
+function Warehouse({ warehouses, setWarehouses = null }) {
   return (
     <section className="warehouse">
       <div className="container--warehouse">
@@ -46,7 +46,7 @@ function Warehouse({ warehouses }) {
         </div>
       </div>
       <div className="warehouse-list">
-        {warehouses ? <WarehouseItems warehouses={warehouses} /> : <></>}
+        {warehouses ? <WarehouseItems setWarehouses={setWarehouses} warehouses={warehouses} /> : <></>}
       </div>
     </section>
   );

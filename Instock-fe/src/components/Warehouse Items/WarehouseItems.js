@@ -9,14 +9,18 @@ import './WarehouseItems.scss';
 import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
 import { useParams } from 'react-router-dom';
 
-const List = ({ warehouses }) => {
+const List = ({ warehouses, setWarehouses = null }) => {
   const [deletingWarehouse, setDeletingWarehouse] = useState(null)
 
   function deleteWarehouse(warehouse){
       setDeletingWarehouse(warehouse)
   }
 
-  function onWarehouseDeleted(warehouse){
+  function onWarehouseDeleted(deletedWarehouse){
+    if(setWarehouses){
+      setWarehouses(warehouses.filter(warehouse => warehouse.id != deletedWarehouse.id))
+    }
+
     setDeletingWarehouse(null)
   }
     console.log(warehouses)
